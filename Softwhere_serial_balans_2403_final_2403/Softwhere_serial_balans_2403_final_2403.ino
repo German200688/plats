@@ -51,8 +51,8 @@ void loop() {
     if (Serial.available() > 0) {  //если есть доступные данные
                                    // считываем байт
       incomingByte0 = Serial.read();
-      Serial.print("I read: ");
-        Serial.println(incomingByte0);
+ //     Serial.print("I read: ");
+   //     Serial.println(incomingByte0);
       if (incomingByte0 > 10 && incomingByte0 != 80) {
         incomingByte8 = incomingByte7;
         incomingByte7 = incomingByte6;
@@ -62,7 +62,7 @@ void loop() {
         incomingByte3 = incomingByte2;
         incomingByte2 = incomingByte1;
         incomingByte1 = incomingByte0;
-        Serial.print("I read2");
+     //   Serial.print("I read2");
       }
       if (incomingByte0 == 80) {
    // if (incomingByte0 == 57) {
@@ -70,18 +70,18 @@ void loop() {
 
 
 
-        Serial.print("I received0: ");
-        Serial.println(incomingByte0);
-        Serial.print("I received1: ");
-        Serial.println(incomingByte1);
-        Serial.print("I received2: ");
-        Serial.println(incomingByte2);
-        Serial.print("I received3: ");
-        Serial.println(incomingByte3);
-        Serial.print("I received4: ");
-        Serial.println(incomingByte4);
-        Serial.print("I received5: ");
-        Serial.println(test);
+    //    Serial.print("I received0: ");
+    //    Serial.println(incomingByte0);
+    //    Serial.print("I received1: ");
+     //   Serial.println(incomingByte1);
+     //   Serial.print("I received2: ");
+    //   Serial.println(incomingByte2);
+     //   Serial.print("I received3: ");
+     //   Serial.println(incomingByte3);
+     //   Serial.print("I received4: ");
+    //    Serial.println(incomingByte4);
+    //    Serial.print("I received5: ");
+     //   Serial.println(test);
 /*        
 incomingByte7 = 0;
 incomingByte6 = 0;
@@ -107,24 +107,24 @@ incomingByte0 = 0;
       }
       if (test == 1 && incomingByte6 == 48 && incomingByte7 == 48) {
         mySerialOUT1.write(incomingByte5);
-      Serial.print("I received5: ");
-        Serial.println(incomingByte5);  
+   //   Serial.print("I received5: ");
+     //   Serial.println(incomingByte5);  
         mySerialOUT1.write(incomingByte4);
-              Serial.print("I received4: ");
-        Serial.println(incomingByte4);  
+       //       Serial.print("I received4: ");
+      //  Serial.println(incomingByte4);  
         mySerialOUT1.write(incomingByte3);
-              Serial.print("I received3: ");
-        Serial.println(incomingByte3);  
+       //       Serial.print("I received3: ");
+       // Serial.println(incomingByte3);  
         mySerialOUT1.write(incomingByte2);
-                      Serial.print("I received2: ");
-        Serial.println(incomingByte2);  
+      //                Serial.print("I received2: ");
+      //  Serial.println(incomingByte2);  
         mySerialOUT1.write(incomingByte1);
-                              Serial.print("I received1: ");
-        Serial.println(incomingByte1);  
+     //                         Serial.print("I received1: ");
+       // Serial.println(incomingByte1);  
         mySerialOUT1.write(10); test = 3;
 
-        Serial.print("I receivedTe: ");
-        Serial.println(test);
+       // Serial.print("I receivedTe: ");
+       // Serial.println(test);
       }
        
         if (test == 3  ) {

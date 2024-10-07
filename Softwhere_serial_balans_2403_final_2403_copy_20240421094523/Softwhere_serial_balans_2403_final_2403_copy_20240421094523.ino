@@ -31,9 +31,9 @@ int incomingByte7;
 void setup() {
   //    pinMode(rxPin, INPUT);
   //    pinMode(txPin, OUTPUT);
-  Serial.begin(9600);
- // mySerialOUT1.begin(9600);
- // mySerialOUT2.begin(9600);
+ // Serial.begin(9600);
+ mySerialOUT1.begin(9600);
+ mySerialOUT2.begin(9600);
 mySerialOUT3.begin(9600);
 mySerialOUT4.begin(9600);
 mySerialOUT5.begin(9600);
@@ -45,7 +45,7 @@ mySerialIN1.begin(9600);
 
 
   
-  Serial.println("Hello Computer");
+ // Serial.println("Hello Computer");
 
   test = 0;
 
@@ -57,6 +57,7 @@ mySerialIN1.begin(9600);
   incomingByte5 = 0;
   incomingByte6 = 0;
   incomingByte7 = 0;  // переменная для хранения полученного байта
+ // Serial.write(50);
 }
 
 void loop() {
@@ -64,6 +65,7 @@ void loop() {
     if (mySerialIN1.available() > 0) {  //если есть доступные данные
                                    // считываем байт
       incomingByte0 = mySerialIN1.read();
+  //    Serial.write(49);
       if (incomingByte0 > 10) {
         incomingByte7 = incomingByte6;
         incomingByte6 = incomingByte5;
@@ -72,7 +74,8 @@ void loop() {
         incomingByte3 = incomingByte2;
         incomingByte2 = incomingByte1;
         incomingByte1 = incomingByte0;
-       
+
+      /* 
         Serial.print("I received05: ");
         Serial.println(incomingByte0);
         Serial.print("I received15: ");
@@ -85,7 +88,7 @@ void loop() {
         Serial.println(incomingByte4);
         Serial.print("I received55: ");
         Serial.println(test);
-        
+       */ 
       }
       if (incomingByte0 == 10) {
         test = 1;
@@ -166,27 +169,27 @@ if (test == 1 && incomingByte3 == 48 && incomingByte4 == 48 && incomingByte5 == 
         mySerialOUT8.write(incomingByte2);
         mySerialOUT8.write(incomingByte1);
         mySerialOUT8.write(10); test = 3;
-        Serial.print("I received5: ");
-        Serial.println(incomingByte5);  
+   //     Serial.print("I received5: ");
+    //    Serial.println(incomingByte5);  
         mySerialOUT1.write(incomingByte4);
-              Serial.print("I received4: ");
-        Serial.println(incomingByte4);  
+   //           Serial.print("I received4: ");
+    //    Serial.println(incomingByte4);  
         mySerialOUT1.write(incomingByte3);
-              Serial.print("I received3: ");
-        Serial.println(incomingByte3);  
+      //        Serial.print("I received3: ");
+     //   Serial.println(incomingByte3);  
         mySerialOUT1.write(incomingByte2);
-                      Serial.print("I received2: ");
-        Serial.println(incomingByte2);  
+     //                 Serial.print("I received2: ");
+      //  Serial.println(incomingByte2);  
         mySerialOUT1.write(incomingByte1);
-                              Serial.print("I received1: ");
-        Serial.println(incomingByte1);  
+    //                          Serial.print("I received1: ");
+    //    Serial.println(incomingByte1);  
 }
 if (test == 1 && incomingByte3 == 48 && incomingByte4 == 48 && incomingByte5 == 55) {
         mySerialOUT9.write(incomingByte2);
         mySerialOUT9.write(incomingByte1);
-        Serial.print("I received1:5524 56 ");
-        Serial.println(incomingByte2);
-        Serial.println(incomingByte1);
+    //    Serial.print("I received1:5524 56 ");
+    //    Serial.println(incomingByte2);
+     //   Serial.println(incomingByte1);
         mySerialOUT9.write(10); test = 3;
 }
         if (test == 3  ) {
